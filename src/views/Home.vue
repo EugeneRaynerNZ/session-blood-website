@@ -71,6 +71,20 @@ export default {
 .d-flex{
   display: flex;
 }
+.button{
+  background: #C1272D;
+  padding: 8px 12px;
+  color: white;
+  text-decoration: none;
+  transition: all .4s;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.button:hover{
+  background: #E5343B;
+
+}
 h1{
   font-size: 48px;
   line-height: 1.2;

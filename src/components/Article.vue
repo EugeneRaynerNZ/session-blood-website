@@ -1,9 +1,10 @@
 <template>
-    <div class="article" :style="'background-image: url('+ articleImg +')' ">
-      <div class="article--content">
+    <div class="article">
+        <img :src="articleImg" alt="">
+        <div class="article--content">
             <h3>articleName</h3>
             <p>{{shortenString}}</p>
-      </div>
+        </div>
     </div>
 </template>
 
@@ -33,12 +34,13 @@ export default {
     background: red;
     flex: 0 0 calc(25% - 15px);
     margin-right: 15px;
-    display: flex;
-    flex-direction: column-reverse;
     text-align: left;
     height: 200px;
-    background-size: cover;
-    background-position: center center;
+    position: relative;
+}
+
+.article img{
+    max-width: 100%;
 }
 
 .article h3{
@@ -53,5 +55,9 @@ export default {
 .article--content{
     padding: 8px;
     background: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 </style>
