@@ -9,10 +9,10 @@
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&display=swap');
 
 #app {
-  font-family: 'Garamond', Helvetica, Arial, sans-serif;
+  font-family: 'Alegreya', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -80,5 +80,14 @@ table {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+p, span, button, a {
+  font-family: 'Lato', sans-serif;
+  line-height: 120%;
+}
+
+.response--card-description{
+  line-height: 120%;
 }
 </style>

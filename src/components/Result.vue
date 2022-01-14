@@ -2,6 +2,7 @@
     <div class="result">
       <span>You got</span> 
       <h1>{{findHighestValues}}</h1>
+      <a href="/quiz" class="button">Try Again</a>
     </div>
 </template>
 
@@ -32,12 +33,13 @@ export default {
             return winners
             
         }
-    }
+    },
 }
 </script>
 
 <style>
 .result{
     margin-top: 200px;
+    text-align: center;
 }
 </style>

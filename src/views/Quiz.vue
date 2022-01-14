@@ -30,12 +30,12 @@
 
       <Result :heroes="heroes" v-if="questions.length === 15"/>
 
-      <div class="hero--points">
+      <!-- <div class="hero--points">
         <div class="hero--points-hero" v-for="hero in heroes" :key="hero.id">
           <p><strong>{{hero.name}}</strong></p>
           <p>Points: <strong>{{hero.points}}</strong></p>
         </div>
-      </div>
+      </div> -->
 
     </template>
     

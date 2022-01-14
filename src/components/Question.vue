@@ -143,13 +143,17 @@ button:hover{
 }
 
 
-
+.response--card-description{
+  line-height: 120%;
+}
 
 
 .question-title{
-flex: 0 0 50%;
-text-align: left;
-font-size: 24px;
+  margin-top: 8px;
+  flex: 0 0 50%;
+  text-align: left;
+  font-size: 36px;
+  line-height: 100%;
 }
 
 .response-box{
@@ -158,7 +162,7 @@ font-size: 24px;
   flex-direction: column;
   justify-content: space-between;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
 }
 
 .response--card{

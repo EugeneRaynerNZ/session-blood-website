@@ -77,7 +77,7 @@ export default {
   color: white;
   text-decoration: none;
   transition: all .4s;
-  margin-top: 10px;
+  margin-top: 24px;
   display: inline-block;
   cursor: pointer;
 }
