@@ -38,6 +38,7 @@
 </template>
 
 <script>
+// added a branch
 import HeroImage from '../assets/session-blood-hero.png'
 import Logo from '../assets/logo.png'
 import Parchment from '../assets/parchment-background.png'
