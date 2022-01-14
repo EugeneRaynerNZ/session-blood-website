@@ -1,18 +1,89 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main>
+      <section class="home--hero" :style="'background-image: url(' + heroImage + ');'">
+        <img class="home--logo" :src="heroLogo" alt="Session Blood">
+      </section>
+      <section class="home--quiz" :style="'background-image: url(' + parchment + ');'">
+        <div class="container">
+          <div class="home--quiz-content">
+            <h1>Ready to find out which hero you are?</h1>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, </p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, </p>
+            <router-link class="button" to="/quiz">Start the quiz</router-link>
+          </div>
+          <div class="home--quiz-image">
+            <img :src="quizImage" alt="">
+          </div>
+        </div>
+      </section>
+      <section class="home--articles">
+        <h1>Latest Articles</h1>
+      </section>
+    </main>
+    <footer></footer>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HeroImage from '../assets/session-blood-hero.png'
+import Logo from '../assets/logo.png'
+import Parchment from '../assets/parchment-background.png'
+import QuizImage from '../assets/home-quiz-image.png'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      heroImage: HeroImage,
+      heroLogo: Logo,
+      parchment: Parchment,
+      quizImage: QuizImage
+    }
   }
 }
 </script>
+
+<style>
+h1{
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+p{
+  margin-top: 20px;
+}
+
+.home--hero{
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 645px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home--logo{
+  max-width: 480px;
+}
+
+.home--quiz{
+  text-align: left;
+  
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  padding: 100px 0;
+}
+
+.home--quiz .container div{
+  flex: 0 0 50%;
+}
+
+.home--articles{
+  color: white;
+}
+</style>
