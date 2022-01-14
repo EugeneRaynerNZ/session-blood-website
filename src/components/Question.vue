@@ -59,11 +59,6 @@ export default {
                 this.heroes.find(hero => hero.id === pointIds[i]).points++
             }
 
-            // if this.question.id === end question
-            // if()
-            // find hero with highest points and display that hero screen
-            // send to parent and show hero screen
-
             this.activateExitAnimation()
 
         },

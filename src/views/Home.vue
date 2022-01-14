@@ -5,7 +5,7 @@
         <img class="home--logo" :src="heroLogo" alt="Session Blood">
       </section>
       <section class="home--quiz" :style="'background-image: url(' + parchment + ');'">
-        <div class="container">
+        <div class="container d-flex">
           <div class="home--quiz-content">
             <h1>Ready to find out which hero you are?</h1>
             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, </p>
@@ -18,7 +18,19 @@
         </div>
       </section>
       <section class="home--articles">
-        <h1>Latest Articles</h1>
+        
+        <div class="container">
+          <h1>Latest Articles</h1>
+          <div class="articles">
+            <Article 
+              v-for="article in articles"
+              :key="'article-' + article.id" 
+              :articleName="article.name" 
+              :articleImg="article.img" 
+              :articleShortDescription="article.shortDescription" 
+            />
+          </div>
+        </div>
       </section>
     </main>
     <footer></footer>
@@ -30,24 +42,39 @@ import HeroImage from '../assets/session-blood-hero.png'
 import Logo from '../assets/logo.png'
 import Parchment from '../assets/parchment-background.png'
 import QuizImage from '../assets/home-quiz-image.png'
+import Article from '../components/Article.vue'
+import ArticleImage1 from '../assets/home-quiz-image.png'
 
 export default {
   name: 'Home',
+  components: {
+    Article
+  },
   data(){
     return {
       heroImage: HeroImage,
       heroLogo: Logo,
       parchment: Parchment,
-      quizImage: QuizImage
+      quizImage: QuizImage,
+      articles: [
+        {id: 1, name: 'Eugene 1', img: ArticleImage1, shortDescription: '123'},
+        {id: 2, name: 'Eugene 2', img: ArticleImage1, shortDescription: '123'},
+        {id: 3, name: 'Eugene 3', img: ArticleImage1, shortDescription: '123'},
+        {id: 4, name: 'Eugene 4', img: ArticleImage1, shortDescription: '123'},
+      ]
     }
   }
 }
 </script>
 
 <style>
+.d-flex{
+  display: flex;
+}
 h1{
   font-size: 48px;
   line-height: 1.2;
+  text-align: left;
 }
 
 p{
@@ -75,7 +102,6 @@ p{
 .container{
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
   padding: 100px 0;
 }
 
@@ -86,4 +112,11 @@ p{
 .home--articles{
   color: white;
 }
+
+.articles{
+  display: flex;
+  width: 100%;
+}
+
+
 </style>
