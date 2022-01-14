@@ -1,30 +1,50 @@
 <template>
-  <div id="quiz" :style="'background-image: url(' + parchment + ');'">    
-    <div class="question-container" >
-      <Question 
-        v-for="(question, index) in questions" :key="question.question" 
-        :number="index"
-        :clicked="question.clicked"
-        :heroes="heroes" 
-        :responses="question.responses" 
-        :question="question.question"
-        :img="question.img"
-      />
-    </div>
+  <div id="quiz" :style="'background-image: url(' + parchment + ');'"> 
 
-    <Result :heroes="heroes" v-if="questions.length === 15"/>
-
-    <div class="hero--points">
-      <div class="hero--points-hero" v-for="hero in heroes" :key="hero.id">
-        <p><strong>{{hero.name}}</strong></p>
-        <p>Points: <strong>{{hero.points}}</strong></p>
+    <div v-if="quizEntry" class="quiz--entry">
+      <div class="container">
+        <div class="quiz--entry-content">
+          <div>
+            <h1>{{intro.title}}</h1>
+            <p v-for="(paragraph, index) in intro.paragraphs" :key="'intro-' + index">{{paragraph}}</p>
+            <div @click="quizEntryButton" class="button">{{intro.buttonText}}</div>
+          </div>
+          <img :src="introImg" alt="">
+        </div>
       </div>
     </div>
+
+    <template v-else>
+
+      <div class="question-container" >
+        <Question 
+          v-for="(question, index) in questions" :key="question.question" 
+          :number="index"
+          :clicked="question.clicked"
+          :heroes="heroes" 
+          :responses="question.responses" 
+          :question="question.question"
+          :img="question.img"
+        />
+      </div>
+
+      <Result :heroes="heroes" v-if="questions.length === 15"/>
+
+      <div class="hero--points">
+        <div class="hero--points-hero" v-for="hero in heroes" :key="hero.id">
+          <p><strong>{{hero.name}}</strong></p>
+          <p>Points: <strong>{{hero.points}}</strong></p>
+        </div>
+      </div>
+
+    </template>
+    
     
   </div>
 </template>
 
 <script>
+import QuizImage from '../assets/home-quiz-image.png'
 import Question from '../components/Question.vue'
 import Image1 from '../assets/quiz/question-1.jpg'
 import Image2 from '../assets/quiz/question-2.jpg'
@@ -52,7 +72,17 @@ export default {
   },
   data(){
     return {
+      quizEntry: true,
       parchment: Parchment,
+      introImg: QuizImage,
+      intro: {
+        title: 'Welcome to the Stonewall Inn adventurer!',
+        paragraphs: [
+          'The storied heroes and legends of Rathe are as different and varied as the land itself. From the aloof masters of the arcane in Dracai to the primal brutality of the Savage Lands, and everything in between, it\'s fair to say that there are a number of different approaches to encounters they may face in their lives.',
+          'So grab a tankard of ale, join us at the table and come play our favourite game - which hero are you?'
+        ],
+        buttonText: 'Start your adventure'
+      },
       heroes: [
         {id: 1, name: 'Katsu', points: 0},
         {id: 2, name: 'Bravo', points: 0},
@@ -395,6 +425,12 @@ export default {
       ]
     }
   },
+
+  methods: {
+    quizEntryButton() {
+      this.quizEntry = false
+    }
+  }
   
 }
 </script>
@@ -403,6 +439,21 @@ export default {
 #quiz{
   overflow-y: hidden;
   height: 100vh;
+}
+
+.quiz--entry{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.quiz--entry-content{
+  display: flex;
+  text-align: left;
+}
+
+.quiz--entry-content div, .quiz--entry-content img{
+  flex: 0 0 50%;
 }
 /* For dev purposes */
 .hero--points{

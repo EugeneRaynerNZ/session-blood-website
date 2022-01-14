@@ -73,12 +73,13 @@ export default {
 }
 .button{
   background: #C1272D;
-  padding: 8px 12px;
+  padding: 12px 20px;
   color: white;
   text-decoration: none;
   transition: all .4s;
   margin-top: 10px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .button:hover{
