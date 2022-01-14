@@ -10,9 +10,9 @@
                 </div>
                 <div class="response-box animation-3">
                     <div class="response" v-for="(response, index) in responses" :key="'response-' + index">
-                        <div class="response--card" v-on:click="chooseResponse(response)">
+                        <button class="response--card" v-on:click="chooseResponse(response)">
                             <div class="response--card-description">{{ response.answer }}</div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -40,6 +40,16 @@ export default {
     data(){
       return {
         activeQuestion: true,
+        watchRoute: ''
+      }
+    },
+    watch: {
+      watchRoute: function (){
+        console.log(this.watchRoute)
+          // const { block } = this.$refs
+          // const question = block.getElementsByClassName("question--container")
+
+          // gsap.timeline().to(question, {opacity: 1, duration:0.4})
       }
     },
     computed: {
@@ -82,7 +92,12 @@ export default {
         },
     },
     mounted(){
-      console.log(this.routeNumber)
+      this.watchRoute = this.$route.params.id
+      const { block } = this.$refs
+      const question = block.getElementsByClassName("question--container")
+      gsap.timeline().set(question, {opacity: 0}).to(question, {opacity: 1, duration:0.4})
+      
+      
       history.replaceState({}, document.title, location.protocol + '//' + location.host + '/quiz/question-1' )
     }
 }
@@ -122,31 +137,18 @@ export default {
 }
 
 button{
-	color: white;
-	border: 1px solid grey;
+	border: none;
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
   text-align: center;
-  transition: all 0.2s;
   padding: 0;
   margin: 0;
 }
 
-button span{
-  line-height:1;
-}
-
-button:hover{
-  background: white;
-  color: grey;
-}
-
-
 .response--card-description{
   line-height: 120%;
 }
-
 
 .question-title{
   margin-top: 8px;
@@ -183,7 +185,6 @@ button:hover{
 }
 
 .response--card-description{
-  
   text-align: left;
   flex: 0 0 90%;
 }

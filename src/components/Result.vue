@@ -1,8 +1,20 @@
 <template>
     <div class="result">
-      <span>You got</span> 
-      <h1>{{findHighestValues}}</h1>
-      <a href="/quiz" class="button">Try Again</a>
+      <div class="container d-flex">
+        <div class="result--box">
+            <span>You got</span> 
+            <h1>{{findHighestValues}}</h1>
+            <a href="/quiz" class="button">Try Again</a>
+        </div>
+        <div class="email--subscribe">
+            <p>Want to know more? Enter your email address and we will send you a detailed breakdown.</p>
+            <label for="email">
+                <span><strong>Email Address</strong></span>
+                <input name="email" type="text" placeholder="Type your email">
+            </label>
+            <button class="button">Recieve my hero now!</button>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -39,7 +51,49 @@ export default {
 
 <style>
 .result{
-    margin-top: 200px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.result--box{
+    flex: 0 0 50%;
+    text-align: left;
+}
+
+.result--box h1{
+    font-size: 60px;
+}
+
+.result--box span{
+    font-size: 30px;
+}
+
+.email--subscribe{
+    flex: 0 0 50%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    box-shadow: 0px 1px 20px 4px rgba(191,191,191,0.14);
+    padding: 16px;
+    text-align: left;
+}
+
+.email--subscribe label{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    text-align: left;
+}
+
+.email--subscribe p{
+    margin: 0;
+}
+
+.email--subscribe label input{
+    padding: 8px;
 }
 </style>

@@ -7,7 +7,7 @@
           <div>
             <h1>{{intro.title}}</h1>
             <p v-for="(paragraph, index) in intro.paragraphs" :key="'intro-' + index">{{paragraph}}</p>
-            <div @click="quizEntryButton" class="button">{{intro.buttonText}}</div>
+            <button @click="quizEntryButton" class="button">{{intro.buttonText}}</button>
           </div>
           <img :src="introImg" alt="">
         </div>
