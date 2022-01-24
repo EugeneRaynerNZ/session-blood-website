@@ -1,5 +1,5 @@
 <template>
-    <div class="result">
+    <section class="result">
       <div class="container d-flex">
         <div class="result--box">
             <span>You got</span> 
@@ -15,7 +15,7 @@
             <button class="button">Recieve my hero now!</button>
         </div>
       </div>
-    </div>
+    </section>
 </template>
 
 <script>

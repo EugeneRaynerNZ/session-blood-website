@@ -22,13 +22,14 @@
         <div class="container">
           <h1>Latest Articles</h1>
           <div class="articles">
-            <Article 
-              v-for="article in articles"
-              :key="'article-' + article.id" 
-              :articleName="article.name" 
-              :articleImg="article.img" 
-              :articleShortDescription="article.shortDescription" 
-            />
+            <template v-for="article in articles">
+              <router-link :key="'article-' + article.name" :to="'/articles/' + article.name"> 
+                <Article 
+                  :article="article" 
+                />
+              </router-link>
+            </template>
+            
           </div>
         </div>
       </section>
@@ -58,10 +59,10 @@ export default {
       parchment: Parchment,
       quizImage: QuizImage,
       articles: [
-        {id: 1, name: 'Eugene 1', img: ArticleImage1, shortDescription: '123'},
-        {id: 2, name: 'Eugene 2', img: ArticleImage1, shortDescription: '123'},
-        {id: 3, name: 'Eugene 3', img: ArticleImage1, shortDescription: '123'},
-        {id: 4, name: 'Eugene 4', img: ArticleImage1, shortDescription: '123'},
+        {id: 1, name: 'Eugene1', img: ArticleImage1, shortDescription: '123'},
+        {id: 2, name: 'Eugene2', img: ArticleImage1, shortDescription: '123'},
+        {id: 3, name: 'Eugene3', img: ArticleImage1, shortDescription: '123'},
+        {id: 4, name: 'Eugene4', img: ArticleImage1, shortDescription: '123'},
       ]
     }
   }

@@ -1,13 +1,13 @@
 <template>
-    <div ref="block" class="question--master-box" style="z-index: 20;" :style="'z-index:' + zIndex" v-if="activeQuestion">
-      
+    <section ref="block" class="question--master-box" style="z-index: 20;" :style="'z-index:' + zIndex" v-if="activeQuestion">
+      <div class="question-title animation-2">
+        <h2>{{question}}</h2>
+      </div>
       <div class="question--container" >
         <div class="question--container-content">
-          <p class="question-number animation-1">{{number + 1}} / 15</p>
+          <p class="question-number animation-1">{{questionId}} / 15</p>
             <div class="question">
-                <div class="question-title animation-2">
-                  <h2>{{question}}</h2>
-                </div>
+                
                 <div class="response-box animation-3">
                     <div class="response" v-for="(response, index) in responses" :key="'response-' + index">
                         <button class="response--card" v-on:click="chooseResponse(response)">
@@ -21,7 +21,7 @@
           <img class="card--image" v-if="img" :src="img" alt="">
         </div>
       </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -34,13 +34,14 @@ export default {
       responses: Array, 
       question: String,
       clicked: Boolean,
-      number: Number,
+      questionId: Number,
       img: String,
     },
     data(){
       return {
         activeQuestion: true,
-        watchRoute: ''
+        watchRoute: '',
+        questionClass: null,
       }
     },
     watch: {
@@ -54,7 +55,7 @@ export default {
     },
     computed: {
       zIndex(){
-        return 100 - this.number
+        return 100 - this.questionId
       },
     },
     methods:{
@@ -72,33 +73,24 @@ export default {
             this.activateExitAnimation()
 
         },
-        fadeOut(){
-          const { block } = this.$refs
-          const question = block.getElementsByClassName("question--container")
-
-          gsap.timeline().to(question, {x: 100, opacity: 0, duration:0.4})
+        changeScreens(){
+          history.replaceState({}, document.title, location.protocol + '//' + location.host + '/quiz/question-' + this.questionId)
+          this.activeQuestion = false
         },
         fadeIn(){
-          const { block } = this.$refs
-          const question = block.getElementsByClassName("question--container")
-
-          gsap.timeline().to(question, {y: -100, opacity: 1, duration:0.4})
+          gsap.timeline().to(this.questionClass, {y: -100, opacity: 1, duration:0.4})
         },
         activateExitAnimation(){
-          this.fadeOut()
-          history.replaceState({}, document.title, location.protocol + '//' + location.host + '/quiz/question-' + this.number + 2 )
-
-          setTimeout(() => {this.activeQuestion = false}, 400);
+          gsap.timeline({onComplete:this.changeScreens})
+          .to('.question--container', {y: 200, opacity: 0, duration:0.6})
+          // .to('.question--container', {y: 200, opacity: 1, duration:0.6})
         },
     },
     mounted(){
       this.watchRoute = this.$route.params.id
       const { block } = this.$refs
-      const question = block.getElementsByClassName("question--container")
-      gsap.timeline().set(question, {opacity: 0}).to(question, {opacity: 1, duration:0.4})
-      
-      
-      history.replaceState({}, document.title, location.protocol + '//' + location.host + '/quiz/question-1' )
+      this.questionClass = block.getElementsByClassName("question--container")
+      // gsap.timeline().set(this.questionClass, {opacity: 0}).to(this.questionClass, {opacity: 1, duration:0.4})
     }
 }
 </script>
@@ -110,9 +102,12 @@ export default {
   width: 100%;
   position: relative;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* opacity: 0; */
+
+}
+
+.question--container .question--master-box:first-child{
+  opacity: 100;
 }
 
 .question--container{
@@ -151,7 +146,7 @@ button{
 }
 
 .question-title{
-  margin-top: 8px;
+  padding: 50px 0;
   flex: 0 0 50%;
   text-align: left;
   font-size: 36px;

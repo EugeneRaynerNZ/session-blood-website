@@ -1,11 +1,11 @@
 <template>
-    <div class="article">
+    <section class="article">
         <img :src="articleImg" alt="">
         <div class="article--content">
             <h3>articleName</h3>
             <p>{{shortenString}}</p>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

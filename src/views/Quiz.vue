@@ -1,32 +1,39 @@
 <template>
-  <div id="quiz" :style="'background-image: url(' + parchment + ');'"> 
+  <main id="quiz" :style="'background-image: url(' + parchment + ');'"> 
 
-    <div v-if="quizEntry" class="quiz--entry">
-      <div class="container">
-        <div class="quiz--entry-content">
-          <div>
-            <h1>{{intro.title}}</h1>
-            <p v-for="(paragraph, index) in intro.paragraphs" :key="'intro-' + index">{{paragraph}}</p>
-            <button @click="quizEntryButton" class="button">{{intro.buttonText}}</button>
+    <a href="/"><img class="logo-stamp" :src="logo" alt=""></a>
+    
+    <template v-if="quizEntry">
+      <section class="quiz--entry">
+        <div class="container">
+          <div class="quiz--entry-content">
+            <div>
+              <h1>{{intro.title}}</h1>
+              <p v-for="(paragraph, index) in intro.paragraphs" :key="'intro-' + index">{{paragraph}}</p>
+              <button @click="quizEntryButton" class="button">{{intro.buttonText}}</button>
+            </div>
+            <img :src="introImg" alt="">
           </div>
-          <img :src="introImg" alt="">
         </div>
-      </div>
-    </div>
+      </section>
+    </template>
 
     <template v-else>
 
-      <div class="question-container" >
+      <section class="question-container" >
+        <div v-for="question in questions" :key="question.question" >
         <Question 
-          v-for="(question, index) in questions" :key="question.question" 
-          :number="index"
+          v-if="questionIndex < questions.length"
           :clicked="question.clicked"
           :heroes="heroes" 
           :responses="question.responses" 
           :question="question.question"
           :img="question.img"
+          :questionId="question.id"
         />
-      </div>
+        </div>
+        
+      </section>
 
       <Result :heroes="heroes" v-if="questions.length === 15"/>
 
@@ -40,10 +47,11 @@
     </template>
     
     
-  </div>
+  </main>
 </template>
 
 <script>
+import Logo from '../assets/logo.png'
 import QuizImage from '../assets/home-quiz-image.png'
 import Question from '../components/Question.vue'
 import Image1 from '../assets/quiz/question-1.jpg'
@@ -72,7 +80,9 @@ export default {
   },
   data(){
     return {
+      questionIndex: 1,
       quizEntry: true,
+      logo: Logo,
       parchment: Parchment,
       introImg: QuizImage,
       intro: {
@@ -110,6 +120,7 @@ export default {
       ],
       questions: [
         {
+          id: 1,
           question: 'Which scenario is most likely to spur you into action?',
           clicked: false,
           img: Image1,
@@ -133,6 +144,7 @@ export default {
           ]
         },
         {
+          id: 2,
           question: 'What would be your preferred weapon?', 
           clicked: false,
           img: Image2,
@@ -152,6 +164,7 @@ export default {
           ]
         },
         {
+          id: 3,
           question: 'You see some strangers up ahead. Do you:', 
           clicked: false,
           img: Image3,
@@ -171,6 +184,7 @@ export default {
           ]
         },
         {
+          id: 4,
           question: 'You see a raging storm heading your way. To make matters worse, you notice a group of bandits about to pull a sneak attack on you. How do you approach the situation?', 
           clicked: false,
           img: Image4,
@@ -190,6 +204,7 @@ export default {
           ]
         },
         {
+          id: 5,
           question: 'How do you approach combat?', 
           clicked: false,
           img: Image5,
@@ -209,6 +224,7 @@ export default {
           ]
         },
         {
+          id: 6,
           question: 'After a long battle, you stop by a small village on your way back home. The first place you visit is:', 
           clicked: false,
           img: Image6,
@@ -228,6 +244,7 @@ export default {
           ]
         },
         {
+          id: 7,
           question: 'You just lost a family heirloom. How important is such an object to you?', 
           clicked: false,
           img: Image7,
@@ -247,6 +264,7 @@ export default {
           ]
         },
         {
+          id: 8,
           question: 'What is your preferred time to travel?', 
           clicked: false,
           img: Image8,
@@ -270,6 +288,7 @@ export default {
           ]
         },
         {
+          id: 9,
           question: 'You notice a strange figure run past you and hastily turn into an alley on the right. Shortly after, a city guard runs towards you and asks if you saw where the culprit went. Do you:', 
           clicked: false,
           img: Image9,
@@ -289,6 +308,7 @@ export default {
           ]
         },
         {
+          id: 10,
           question: 'You see a tavern where you could stay the night. How do you spend your evening?', 
           clicked: false,
           img: Image10,
@@ -312,6 +332,7 @@ export default {
           ]
         },
         {
+          id: 11,
           question: 'What is your preferred environment?', 
           clicked: false,
           img: Image11,
@@ -335,6 +356,7 @@ export default {
           ]
         },
         {
+          id: 12,
           question: 'You walk past a wanted poster with your face on it.', 
           clicked: false,
           img: Image12,
@@ -354,6 +376,7 @@ export default {
           ]
         },
         {
+          id: 13,
           question: 'A traveling merchant shows you their wares, which one attracts you the most:', 
           clicked: false,
           img: Image13,
@@ -376,7 +399,7 @@ export default {
             },
           ]
         },
-        {
+        {id: 14,
           question: 'Which type of climate is most appealing to you?', 
           clicked: false,
           img: Image14,
@@ -400,6 +423,7 @@ export default {
           ]
         },
         {
+          id: 15,
           question: 'When on the road, you come across a fallen nest with an exotic bird in it. Do you:', 
           clicked: false,
           img: Image15,
@@ -429,6 +453,8 @@ export default {
   methods: {
     quizEntryButton() {
       this.quizEntry = false
+
+      history.replaceState({}, document.title, location.protocol + '//' + location.host + '/quiz/question-' + this.questionId)
     }
   }
   
@@ -436,6 +462,13 @@ export default {
 </script>
 
 <style>
+.logo-stamp{
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100px;
+  padding: 40px;
+}
 #quiz{
   overflow-y: hidden;
   height: 100vh;

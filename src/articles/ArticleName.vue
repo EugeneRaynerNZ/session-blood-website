@@ -6,10 +6,9 @@
           </section>
           <section>
              <div class="container">
-                <!-- <h1>{{article.name}}</h1>
-                <div v-html="article.shortDescription"></div> -->
-                <!-- {{ $route.params.id}} -->
-                {{article}}
+                <h1>{{article.name}}</h1>
+                <div v-html="article.content"></div>
+                {{ $route.params.id}}
              </div>
           </section>
       </main>
@@ -17,18 +16,28 @@
 </template>
 
 <script>
-import Parchment from '../assets/parchment-background.png'
-import Logo from '../assets/logo.png'
+import Image from '../assets/logo.png'
 
 export default {
     name: 'Article',
-    props: {
-        article: Object
-    },
+    // props: {
+    //     article: Object
+    // },
     data(){
         return {
-            parchment: Parchment,
-            logo: Logo
+            id: articleName,
+            title: '',
+            paragraphs: [
+                '',
+                '',
+                '',
+            ],
+            image: Image
+        }
+    },
+    computed: {
+        articleName(){
+            return this.title + '-1'
         }
     }
 }
