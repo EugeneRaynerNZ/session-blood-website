@@ -3,7 +3,7 @@
     "id":1,
     "question":"Which scenario is most likely to spur you into action?",
     "clicked":false,
-    "img":"assets/quiz/question-1.jpg",
+    "img":"//assets/quiz/question-1.jpg",
     "responses":[
       {
         "answer":"A nearby town has many innocent lives in danger. Only you know how to stop the disaster.",
@@ -52,7 +52,7 @@
     "id":2,
     "question":"What would be your preferred weapon?",
     "clicked":false,
-    "img":"assets/quiz/question-2.jpg",
+    "img":"//assets/quiz/question-2.jpg",
     "responses":[
       {
         "answer":"Something light and agile. You want to kill your foes swiftly.",
@@ -97,7 +97,7 @@
     "id":3,
     "question":"You see some strangers up ahead. Do you:",
     "clicked":false,
-    "img":"assets/quiz/question-3.jpg",
+    "img":"/assets/quiz/question-3.jpg",
     "responses":[
       {
         "answer":"Ignore them and hide. There is no point drawing attention to yourself.",
@@ -143,7 +143,7 @@
     "id":4,
     "question":"You see a raging storm heading your way. To make matters worse, you notice a group of bandits about to pull a sneak attack on you. How do you approach the situation?",
     "clicked":false,
-    "img":"assets/quiz/question-4.jpg",
+    "img":"/assets/quiz/question-4.jpg",
     "responses":[
       {
         "answer":"You have planned for any circumstance. You've been preparing for battle and you've been preparing for extreme weather conditions. You know you'll be fine.",
@@ -191,7 +191,7 @@
     "id":5,
     "question":"How do you approach combat?",
     "clicked":false,
-    "img":"assets/quiz/question-5.jpg",
+    "img":"/assets/quiz/question-5.jpg",
     "responses":[
       {
         "answer":"Pure instinct guides your decisions. Switching off your mind and following the movements of your body gives you the best results.",
@@ -237,7 +237,7 @@
     "id":6,
     "question":"After a long battle, you stop by a small village on your way back home. The first place you visit is:",
     "clicked":false,
-    "img":"assets/quiz/question-6.jpg",
+    "img":"/assets/quiz/question-6.jpg",
     "responses":[
       {
         "answer":"The Tavern. As a cold drink and banter is the only choice after a bloody skirmish. ",
@@ -279,7 +279,7 @@
     "id":7,
     "question":"You just lost a family heirloom. How important is such an object to you?",
     "clicked":false,
-    "img":"assets/quiz/question-7.jpg",
+    "img":"/assets/quiz/question-7.jpg",
     "responses":[
       {
         "answer":"You are your roots. Knowing and honouring the past, you know where to head in the future. ",
@@ -323,7 +323,7 @@
     "id":8,
     "question":"What is your preferred time to travel?",
     "clicked":false,
-    "img":"assets/quiz/question-8.jpg",
+    "img":"/assets/quiz/question-8.jpg",
     "responses":[
       {
         "answer":"Daytime. You can clearly see any foes and obstacles in your path.",
@@ -378,7 +378,7 @@
     "id":9,
     "question":"You notice a strange figure run past you and hastily turn into an alley on the right. Shortly after, a city guard runs towards you and asks if you saw where the culprit went. Do you:",
     "clicked":false,
-    "img":"assets/quiz/question-9.jpg",
+    "img":"/assets/quiz/question-9.jpg",
     "responses":[
       {
         "answer":"You tell them the truth. Whoever it was, deserves to be caught and face justice.",
@@ -424,7 +424,7 @@
     "id":10,
     "question":"You see a tavern where you could stay the night. How do you spend your evening?",
     "clicked":false,
-    "img":"assets/quiz/question-10.jpg",
+    "img":"/assets/quiz/question-10.jpg",
     "responses":[
       {
         "answer":"Enter, grab a pint and join the fray. By the end of the night everyone will know you and you will know everyone. It's the only way to celebrate being alive another day.",
@@ -477,7 +477,7 @@
     "id":11,
     "question":"What is your preferred environment?",
     "clicked":false,
-    "img":"assets/quiz/question-11.jpg",
+    "img":"/assets/quiz/question-11.jpg",
     "responses":[
       {
         "answer":"The hustle and bustle of a big city is where you are most comfortable.",
@@ -532,7 +532,7 @@
     "id":12,
     "question":"You walk past a wanted poster with your face on it.",
     "clicked":false,
-    "img":"assets/quiz/question-12.jpg",
+    "img":"/assets/quiz/question-12.jpg",
     "responses":[
       {
         "answer":"This must be a mistake. You go straight to the local authorities to resolve the matter.",
@@ -578,7 +578,7 @@
     "id":13,
     "question":"A traveling merchant shows you their wares, which one attracts you the most:",
     "clicked":false,
-    "img":"assets/quiz/question-13.jpg",
+    "img":"/assets/quiz/question-13.jpg",
     "responses":[
       {
         "answer":"A glowing necklace with evident arcane energy.",
@@ -629,7 +629,7 @@
     "id":14,
     "question":"Which type of climate is most appealing to you?",
     "clicked":false,
-    "img":"assets/quiz/question-14.jpg",
+    "img":"/assets/quiz/question-14.jpg",
     "responses":[
       {
         "answer":"Crisp air of a snowy mountains' peak is where you feel most alive.",
@@ -679,7 +679,7 @@
     "id":15,
     "question":"When on the road, you come across a fallen nest with an exotic bird in it. Do you:",
     "clicked":false,
-    "img":"assets/quiz/question-15.jpg",
+    "img":"/assets/quiz/question-15.jpg",
     "responses":[
       {
         "answer":"Take it with you to the next town. Hopefully someone there can look after it.",
