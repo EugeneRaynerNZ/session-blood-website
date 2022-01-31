@@ -1,0 +1,22 @@
+[
+    {
+      "id":1,
+      "url":"test-url-1",
+      "img":"../assets/articles/article1Image.jpg",
+      "title":"test title 1",
+      "content":[
+        "Test paragraph 1 in here",
+        "Test paragraph 2 in here"
+      ]
+    },
+    {
+        "id":2,
+        "url":"test-url-2",
+        "img":"../assets/articles/article2Image.jpg",
+        "title":"test title 2",
+        "content":[
+          "Test paragraph 1 in here",
+          "Test paragraph 2 in here"
+        ]
+      }
+]

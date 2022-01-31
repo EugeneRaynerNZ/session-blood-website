@@ -22,14 +22,12 @@
         <div class="container">
           <h1>Latest Articles</h1>
           <div class="articles">
-            <template v-for="article in articles">
-              <router-link :key="'article-' + article.name" :to="'/articles/' + article.name"> 
-                <Article 
-                  :article="article" 
-                />
-              </router-link>
-            </template>
-            
+            <ArticleTile 
+              v-for="article in articles"
+              :key="'article-key-' + article.id"
+              :id="article.id"
+              :article="article"
+            />
           </div>
         </div>
       </section>
@@ -44,13 +42,13 @@ import HeroImage from '../assets/session-blood-hero.png'
 import Logo from '../assets/logo.png'
 import Parchment from '../assets/parchment-background.png'
 import QuizImage from '../assets/home-quiz-image.png'
-import Article from '../components/Article.vue'
-import ArticleImage1 from '../assets/home-quiz-image.png'
+import ArticleTile from '../components/ArticleTile.vue'
+import Articles from '../assets/articles/articles.json'
 
 export default {
   name: 'Home',
   components: {
-    Article
+    ArticleTile
   },
   data(){
     return {
@@ -58,14 +56,9 @@ export default {
       heroLogo: Logo,
       parchment: Parchment,
       quizImage: QuizImage,
-      articles: [
-        {id: 1, name: 'Eugene1', img: ArticleImage1, shortDescription: '123'},
-        {id: 2, name: 'Eugene2', img: ArticleImage1, shortDescription: '123'},
-        {id: 3, name: 'Eugene3', img: ArticleImage1, shortDescription: '123'},
-        {id: 4, name: 'Eugene4', img: ArticleImage1, shortDescription: '123'},
-      ]
+      articles: Articles,
     }
-  }
+  },
 }
 </script>
 
@@ -82,6 +75,10 @@ export default {
   margin-top: 24px;
   display: inline-block;
   cursor: pointer;
+}
+
+a:visited{
+  text-decoration: none;
 }
 
 .button:hover{
@@ -133,6 +130,7 @@ p{
 .articles{
   display: flex;
   width: 100%;
+  margin-top: 40px;
 }
 
 

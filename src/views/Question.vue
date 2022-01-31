@@ -92,7 +92,6 @@ export default {
         }
       })
           .to('.question--container', {y: 200, opacity: 0, duration: 0.6})
-      // .to('.question--container', {y: 200, opacity: 1, duration:0.6})
     },
   },
   mounted() {
