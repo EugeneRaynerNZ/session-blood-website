@@ -60,4 +60,10 @@ export default {
 .article--page-header img{
     max-width: 100px;
 }
+.articleView--Content{
+    padding: 0 40px 0 40px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
 </style>

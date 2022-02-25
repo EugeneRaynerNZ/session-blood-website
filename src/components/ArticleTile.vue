@@ -3,7 +3,7 @@
         <div class="articleTile--border" :style="'background-image: url(' + border + ');'"></div>
         <div class="articleTile--content">
             <div class="articleTile--content-text">
-                <h3>{{article.title}}</h3>
+                <h3>{{article.cardTitle}}</h3>
                 <p>{{shortenString}}</p>
             </div>
         </div>
@@ -27,7 +27,7 @@ export default {
     },
     computed: {
         shortenString(){
-            return this.article.content[0].substring(0, 20);
+            return this.article.content[0].substring(0, 60);
         },
         safeUrl(){
             return this.article.url.replace(/[\W_]+/g, '-').toLowerCase();
@@ -50,6 +50,7 @@ export default {
     background-size: contain;
     background-position: top center;
     background-repeat: no-repeat;
+    text-decoration: none;
 }
 
 .articleTile--border{
@@ -70,10 +71,11 @@ export default {
 .articleTile h3{
     margin: 0;
     font-size: 24px;
+    line-height: 100%;
 }
 .articleTile p{
     margin: 0;
-    
+    margin-top: 6px;
 }
 
 .articleTile--content{
@@ -88,6 +90,6 @@ export default {
     background: black;
     width: 100%;
     color: white;
-    padding: 12px 24px 40px 24px;
+    padding: 12px 24px 20px 24px;
 }
 </style>
