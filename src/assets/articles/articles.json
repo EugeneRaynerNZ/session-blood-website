@@ -2,7 +2,7 @@
     {
       "id":1,
       "url":"test-url-1",
-      "img":"../assets/articles/article1Image.jpg",
+      "img":"article1Image.jpg",
       "cardTitle":"How to Prepare for a New Metagame",
       "title":"How to Prepare for a New Metagame in Flesh and Blood",
       "content":[

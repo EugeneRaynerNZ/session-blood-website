@@ -12,6 +12,7 @@
                 <div class="container">
                     <div class="articleView--Content">
                         <h1>{{article.title}}</h1>
+                        <img style="max-width: 100%;" :src="loadImg('article1Image.jpg')" alt="">
                         <p v-for="(content, index) in article.content" :key="'article-text-' + index">{{content}}</p>
                     </div>
                 </div>
@@ -41,7 +42,11 @@ export default {
             return this.articleName.replace(/[\W_]+/g, '-').toLowerCase();
         }
     },
-     
+    methods: {
+        loadImg(imgPath) {
+            return require('../assets/articles/' + imgPath)
+        },
+    }
 }
 </script>
 

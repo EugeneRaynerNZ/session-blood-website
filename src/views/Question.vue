@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="question--container-img">
-          <img class="card--image" v-if="activeQuestion.img" :src="activeQuestion.img" alt="">
+          <img class="card--image" v-if="activeQuestion.img" :src="loadImg(activeQuestion.img)" alt="">
         </div>
       </div>
     </section>
@@ -52,6 +52,9 @@ export default {
     }
   },
   methods: {
+    loadImg(imgPath) {
+      return require('../assets/quiz/' + imgPath)
+    },
     routeCheck() {
       const {block} = this.$refs
       this.questionClass = block.getElementsByClassName("question--container")

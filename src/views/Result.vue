@@ -5,18 +5,22 @@
       <div class="container d-flex">
         <div class="result--box">
           <span>You got</span>
-          <h1>{{ findHighestValues }}</h1>
-          <a href="/quiz" class="button">Try Again</a>
+          <h1>{{ yourHeroes }}</h1>
+          <p>{{ yourHeroes }} is something to do with hero description here it should be a large paragraph</p>
+          <!-- <a href="/quiz" class="button">Try Again</a> -->
+          <div class="email--subscribe">
+            <p>Want to know more? Enter your email address and we will send you a detailed breakdown.</p>
+            <label for="email">
+              <span><strong>Email Address</strong></span>
+              <input name="email" type="text" placeholder="Type your email">
+            </label>
+            <button class="button">Recieve my hero now!</button>
+            </div>
+          </div>
         </div>
-        <div class="email--subscribe">
-          <p>Want to know more? Enter your email address and we will send you a detailed breakdown.</p>
-          <label for="email">
-            <span><strong>Email Address</strong></span>
-            <input name="email" type="text" placeholder="Type your email">
-          </label>
-          <button class="button">Recieve my hero now!</button>
+        <div>
+
         </div>
-      </div>
     </section>
   </main>
 </template>
@@ -32,26 +36,29 @@ export default {
       heroResults: [],
       parchment: Parchment,
       logo: Logo,
+      winner: null,
     }
   },
   //loop through heroes array and find the highest point values
   computed: {
-    findHighestValues() {
+    yourHeroes() {
+      if(!this.winner){
+        return
+      }
+      if (this.winner.length === 1) {
+        return this.winner[0].name
+      }
+
+      const winners = this.winner.map(hero => hero.name)
+      return winners
+    }
+  },
+  mounted(){
       const heroes = this.$store.get('$heroes')
       const scores = heroes.map(x => x.points)
       let largest = Math.max.apply(Math, scores);
-      const winner = heroes.filter(x => x.points >= largest)
-
-      if (winner.length === 1) {
-        return winner[0].name
-      }
-
-      const winners = winner.map(hero => hero.name)
-
-      return winners
-
-    }
-  },
+      this.winner = heroes.filter(x => x.points >= largest)    
+  }
 }
 </script>
 
