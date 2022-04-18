@@ -6,14 +6,14 @@
             <h1>{{findHighestValues}}</h1>
             <a href="/quiz" class="button">Try Again</a>
         </div>
-        <div class="email--subscribe">
+        <!-- <div class="email--subscribe">
             <p>Want to know more? Enter your email address and we will send you a detailed breakdown.</p>
             <label for="email">
                 <span><strong>Email Address</strong></span>
                 <input name="email" type="text" placeholder="Type your email">
             </label>
             <button class="button">Recieve my hero now!</button>
-        </div>
+        </div> -->
       </div>
     </section>
 </template>
@@ -41,11 +41,20 @@ export default {
             }
 
             const winners = winner.map(hero => hero.name)
+            // let winnersLength = winners.length - 1
+            // winners = this.getRandomInt(0, winnersLength)
 
             return winners
             
-        }
+        },
     },
+    // methods: {
+    //     getRandomInt(min, max) {
+    //         min = Math.ceil(min);
+    //         max = Math.floor(max);
+    //         return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+    //     }
+    // }
 }
 </script>
 
